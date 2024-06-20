@@ -88,7 +88,8 @@ export const QuestionLayout = () => {
         {error ? (
           <>
             <p>{error}</p>
-            {/* <p>Please ensure you are logged in</p> */}
+            <p>Please ensure you are logged in</p>
+            <p>Otherwise, the Question set Does not exist</p>
           </>
         ) : (
           <>
