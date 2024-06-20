@@ -1,52 +1,18 @@
 import Header from "../component/ui/Header/Header"
 import { QuestionSetCard } from "../component/QuestionSetCard"
 import { useEffect, useState } from "react"
+import loadData from "../api/loadData";
 
 
-async function  fetchViewQuestionSets(){
-    console.log("fetchViewQuestionSets triggered,,");
 
-    const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/read-exam-set`,{
-            
-                method:"GET",
-                headers:{
-                        'Content-Type': 'application/json'
-                }
-            } )
-
-            const data = await response.json()
-            console.log("data",data.data);
-            return data
-}
 
 const QuestionMenuPage = () => {
-    const [menuList,setMenuList]= useState([]);
-    const [error,setError]= useState(null);
+    const [menuList,setMenuList]= useState([]); //stores all variation of examset and renders on QUestionCard
+    const [error,setError]= useState(null); //error state to load error page if fails to load data
 
 
     useEffect(()=>{
-       
-            const loadData = async()=>{
-                try{
-                
-                //check if data alrdy in cache, if not call API
-                const cachedData = sessionStorage.getItem("questionSetsMenu");
-
-                if(cachedData){
-                    setMenuList(JSON.parse(cachedData))
-                }else{
-                    const fetchResponse =  await fetchViewQuestionSets();
-                    sessionStorage.setItem("questionSetsMenu",JSON.stringify(fetchResponse.data))
-                    setMenuList(fetchResponse.data);
-                    console.log(fetchResponse.data);
-                }
-                }catch(error){
-                    console.log("Error at QuestionMenuPage useEffect:",error)
-                    setError("Failed fetching menu Data")
-                }
-            }
-        loadData();
+        loadData(setMenuList,setError);
     },[])
 
 
@@ -78,9 +44,6 @@ const QuestionMenuPage = () => {
                 </ul>
             </div>
         </section>
-
-       
-       
     )
 }
 

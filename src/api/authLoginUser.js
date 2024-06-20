@@ -1,7 +1,7 @@
 export async function loginUser({email,password,navigate}){
     try{
-        // check if token in localstorage already exist ie logged in
-      const isLoggedIn = Boolean(window.localStorage.getItem("token"));
+        // check if token in sessionStorage already exist ie logged in
+      const isLoggedIn = Boolean(window.sessionStorage.getItem("token"));
       if(isLoggedIn){
         return alert("User already logged in")
       }
@@ -26,13 +26,13 @@ export async function loginUser({email,password,navigate}){
         if(!data.ok){
             return alert(data.message)
         }
-        // alert(data.message);
+        //stores user data in sessionSTorage
         window.sessionStorage.setItem('token',data.token);
         window.sessionStorage.setItem('id',data.id);
         window.sessionStorage.setItem('username',data.username);
         window.sessionStorage.setItem('email',data.email);
         window.sessionStorage.setItem('lastLogin',data.lastLogin);
-        navigate(`/profile/?username=${data.username}`)
+        navigate(`/profile/?username=${data.username}`) //directs to user Profile Page
 
     }catch(error){
         console.error("Error at authLoginUser:", error);

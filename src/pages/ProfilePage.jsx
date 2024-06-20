@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Barchart from '../component/ui/Barchart/Barchart'
 import Donutchart from '../component/ui/Donutchart/Donutchart'
 import Header from '../component/ui/Header/Header'
@@ -10,7 +10,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 export const ProfilePage = () => {
   let [searchParams] = useSearchParams();
   const username = searchParams.get("username"); //params username in url
-  // const  id = sessionStorage.getItem("id");
   const email =  sessionStorage.getItem("email");
   const lastLogin  = sessionStorage.getItem("lastLogin");
   const navigate = useNavigate();
@@ -47,9 +46,10 @@ export const ProfilePage = () => {
          />
         <div className='py-4 px-4'>
         <div id="chart-section" className=' max-w-screen-xl mx-auto   flex flex-col md:flex-row  bg-white shadow  sm:rounded-lg'>
+          <Suspense fallback={<div>Loading Charts...</div>}>
             <Donutchart/>
             <Barchart />
-
+          </Suspense>
           </div>
         </div>
     </div>

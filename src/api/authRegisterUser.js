@@ -1,6 +1,8 @@
 async function  registerUser({username,password,email,navigate}){
 
     try{
+
+        
         const response = await fetch(
             `${import.meta.env.VITE_API_URL}/register`,
             {

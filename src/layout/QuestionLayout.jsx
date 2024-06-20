@@ -1,44 +1,20 @@
 import Header from '../component/ui/Header/Header';
 import QuestionComponent from '../component/QuestionComponent';
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import { useStopwatch } from 'react-timer-hook';
 import Modal from '../component/ui/Modal';
 import ResultComponent from '../component/ResultComponent';
+import { subjectColorBg,subjectColorHover,subjectColorPrimary } from '../utils/colorSubjectThemeUtils';
+import { fetchQuestions } from '../api/fetchQuestions';
+import { fetchResult } from '../api/fetchResult';
 
-const subjectColorBg = {
-  "sejarah": 'bg-orange-300',
-  "bahasa_malaysia": 'bg-yellow-200',
-  "bahasa_inggeris": 'bg-blue-400',
-  "pendidikan_islam": 'bg-green-400',
-  "matematik": 'bg-red-400',
-  "pendidikan_moral": 'bg-indigo-400',
-};
-
-const subjectColorPrimary = {
-  "sejarah": 'bg-orange-400',
-  "bahasa_malaysia": 'bg-yellow-300',
-  "bahasa_inggeris": 'bg-blue-500',
-  "pendidikan_islam": 'bg-green-500',
-  "matematik": 'bg-red-500',
-  "pendidikan_moral": 'bg-indigo-500',
-};
-
-const subjectColorHover = {
-  "sejarah": 'hover:bg-orange-400',
-  "bahasa_malaysia": 'hover:bg-amber-800',
-  "bahasa_inggeris": 'hover:bg-blue-400',
-  "pendidikan_islam": 'hover:bg-green-400',
-  "matematik": 'hover:bg-red-400',
-  "pendidikan_moral": 'hover:bg-purple-400',
-};
 
 export const QuestionLayout = () => {
   const location = useLocation();
-  const { examination_id, image, questionSet, subject, year, desc } = location.state; //inherited state from QuestionFrontPage
+  const { examination_id, questionSet, subject, year } = location.state; //inherited state from QuestionFrontPage
   const [questionData, setQuestionData] = useState([]);
   const [index, setIndex] = useState(0);
-  const navigate = useNavigate();
   const [modalStatus, setModalStatus] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -48,15 +24,9 @@ export const QuestionLayout = () => {
 
   // Stopwatch feature from react-timer-hook
   const {
-    totalSeconds,
     seconds,
     minutes,
     hours,
-    days,
-    isRunning,
-    start,
-    pause,
-    reset,
   } = useStopwatch({ autoStart: true });
 
   // Apply color styling based on subject
@@ -66,33 +36,7 @@ export const QuestionLayout = () => {
 
   // Fetch questions from BE
   useEffect(() => {
-    async function fetchQuestions() {
-      try {
-        const token = sessionStorage.getItem("token");
-        const responseQuestionFetch = await fetch(`${import.meta.env.VITE_API_URL}/fetch-questions/${subject}/${year}/${examination_id}`, {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
-
-        if (!responseQuestionFetch.ok) {
-          throw new Error('Failed to fetch questions');
-        }
-
-        const responseDataQuestionFetch = await responseQuestionFetch.json();
-        setQuestionData(responseDataQuestionFetch.questionData); // Set questionData to fetched response
-        setLoading(false); // Update loading state because response received
-
-      } catch (error) {
-        setLoading(false);
-        setError("Error loading question from Server ");
-      }
-    }
-
-    fetchQuestions();
-
+    fetchQuestions(subject,year,examination_id,setQuestionData,setLoading,setError);
   }, [year, subject, questionSet, examination_id,questionData]);
 
   // Handle previous and next button functions
@@ -120,36 +64,6 @@ export const QuestionLayout = () => {
     console.log(newAnswers);
   }
 
-  // Fetch result from BE
-  const fetchResult = async () => {
-    try {
-      const username = sessionStorage.getItem("username");
-      const time = sessionStorage.getItem("timeTaken");
-
-      const responseResultFetch = await fetch(`${import.meta.env.VITE_API_URL}/fetch-attempt-result/${examination_id}`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          subject,
-          userAnswer: answersArray,
-          time: time
-        })
-      });
-
-      const responseResultFetchData = await responseResultFetch.json();
-      setResultData(responseResultFetchData);
-      setLoading(false); // Update loading state because response received
-
-    } catch (error) {
-      console.log("ERROR fetchResult @QUestionLayout", error);
-      setLoading(false);
-      setError("Error loading question from Server :( Please Ensure You are Logged in");
-    }
-  };
-
   // Handle modal button submit user answer
   function handleSubmitAttempt() {
     setShowResult(true);
@@ -161,7 +75,7 @@ export const QuestionLayout = () => {
     } else {
       sessionStorage.setItem('timeTaken', time_snapshot);
     }
-    fetchResult();
+    fetchResult(examination_id,subject,answersArray,setResultData,setLoading,setError);
   }
 
   // Render UI handling if fetch fails
