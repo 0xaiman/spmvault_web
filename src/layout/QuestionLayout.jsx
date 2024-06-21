@@ -2,7 +2,7 @@ import Header from '../component/ui/Header/Header';
 import QuestionComponent from '../component/QuestionComponent';
 import { useEffect, useState } from 'react';
 import {  useLocation } from 'react-router-dom';
-import { useStopwatch } from 'react-timer-hook';
+import { useStopwatch, useTimer } from 'react-timer-hook';
 import Modal from '../component/ui/Modal';
 import ResultComponent from '../component/ResultComponent';
 import { subjectColorBg,subjectColorHover,subjectColorPrimary } from '../utils/colorSubjectThemeUtils';
@@ -21,6 +21,21 @@ export const QuestionLayout = () => {
   const [answersArray, setAnswersArray] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [resultData, setResultData] = useState([]);
+  const time = new Date();
+  // timer feature
+  
+  const timerEnd = time.setSeconds(time.getSeconds() + 3600); //TODO: Timer set at hardcoded value
+
+  const {
+    seconds: timerSeconds,
+    minutes: timerMinutes,
+  } = useTimer({ expiryTimestamp: timerEnd, onExpire: () => {
+        alert('Uh Oh, you have used up the allocated time, ending current attempt')
+        handleSubmitAttempt()
+      } });
+  //TODO :refactor this Page, its a mess bro 
+
+  // 
 
   // Stopwatch feature from react-timer-hook
   const {
@@ -113,6 +128,14 @@ export const QuestionLayout = () => {
                   showResult ?
                     null :
                     `0${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`
+                }
+               
+              </h1>
+              <h1 className='hidden'>Timer
+              {
+                  showResult ?
+                    null :
+                    `0${hours}:${timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:${timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}`
                 }
               </h1>
               <div className={`bg-white shadow p-4 py-6 sm:p-6 rounded-lg ${showResult ? "w-4/5 lg:w-fit" : "w-4/5 lg:w-3/4"} h-max gap-5 flex flex-col`}>
