@@ -84,12 +84,14 @@ export const QuestionLayout = () => {
   if (!questionData || questionData.length === 0 || error) return (
     <div className='h-screen'>
       <Header />
-      <div className='h-1/2 w-screen text-center text-4xl font-bold flex flex-col justify-center'>
+      <div className='h-1/2 w-screen text-center text-3xl font-bold flex flex-col justify-center'>
         {error ? (
           <>
-            <p>{error}</p>
-            <p>Please ensure you are logged in</p>
-            <p>Otherwise, the Question set Does not exist</p>
+            {/* <p>{error}</p> */}
+        
+              <p>Please make sure you are logged in to access the questions.</p>
+              <p>If you are already logged in and do not see the updated question sets, it means they have not been added to the database yet.</p>
+              <p>For now, please answer the SEJARAH question set, as it is the only one available at the moment.</p>
           </>
         ) : (
           <>
