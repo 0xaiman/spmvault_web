@@ -21,7 +21,7 @@ const QuestionMenuPage = () => {
         <section className=" bg-gray-100 flex flex-col gap-5">
         <Header/>
 
-            <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+            <div className="max-w-screen-lg mx-auto px-4 md:px-8">
                 <div className="space-y-5 sm:text-center sm:max-w-md sm:mx-auto">
                     <h1 className="text-gray-800 text-3xl font-extrabold sm:text-4xl">Pick an Exam Set </h1>
                     <p className="text-gray-600">Blogs that are loved by the community. Updated every hour.</p>

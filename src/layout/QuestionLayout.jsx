@@ -10,6 +10,7 @@ import { fetchQuestions } from '../api/fetchQuestions';
 import { fetchResult } from '../api/fetchResult';
 
 
+
 export const QuestionLayout = () => {
   const location = useLocation();
   const { examination_id, questionSet, subject, year } = location.state; //inherited state from QuestionFrontPage
@@ -112,7 +113,7 @@ export const QuestionLayout = () => {
 
   return (
 
-        <div className={`w-full min-h-screen flex flex-col ${colorThemeBg}`}>
+        <div className={`w-full min-h-screen pb-20 flex flex-col ${colorThemeBg}`}>
             {modalStatus &&
               <Modal
                 open={modalStatus}
@@ -138,7 +139,7 @@ export const QuestionLayout = () => {
                     `0${hours}:${timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:${timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}`
                 }
               </h1>
-              <div className={`bg-white shadow p-4 py-6 sm:p-6 rounded-lg ${showResult ? "w-4/5 lg:w-fit" : "w-4/5 lg:w-3/4"} h-max gap-5 flex flex-col`}>
+              <div className={`bg-white shadow p-4 py-6 sm:p-6 rounded-lg ${showResult ? "w-4/5 lg:w-fit" : "w-4/5 lg:w-3/4"} h-fit gap-5 flex flex-col`}>
                 {showResult ?
                   <ResultComponent
                     questionData={questionData}

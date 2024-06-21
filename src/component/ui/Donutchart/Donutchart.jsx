@@ -1,6 +1,6 @@
 import Chart from 'react-apexcharts';
 
-const Donutchart = () => {
+const Donutchart = ({numberAttempt}) => {
 
 
   return (
@@ -9,11 +9,12 @@ const Donutchart = () => {
         type="pie"
         width="100%"
         height="auto"
-        series= {[44, 55, 13, 43, 22]}
+        // series= {[44, 55, 13, 43, 22,22]}
+        series= {numberAttempt}
         options={{
             legend:{position:'bottom'},
          
-          labels:['Bahasa Melayu','English','Sejarah','Pendidikan Islam','Matematik'],
+          labels:['Bahasa Melayu','English','Sejarah','Pendidikan Islam','Pendidikan Moral','Matematik'],
           title: {
             text: 'Number of Attempts Per Subject', 
             align:'center'

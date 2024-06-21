@@ -18,7 +18,7 @@ const ProfileHeader =(props) => {
     return (
         <>
            <section className="py-4 px-4">
-            <div className="max-w-screen-xl mx-auto px-4 text-center  flex flex-col md:flex-row gap-10  bg-white shadow  sm:rounded-lg  ">
+            <div className="max-w-screen-lg mx-auto px-4 text-center  flex flex-col md:flex-row gap-10  bg-white shadow  sm:rounded-lg  ">
               
                 <div className="md:my-12  ">
                                     <div className="w-24 h-24 mx-auto">

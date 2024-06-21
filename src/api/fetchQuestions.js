@@ -4,7 +4,7 @@
 export    async function fetchQuestions(subject,year,examination_id,setQuestionData,setLoading,setError) {
     try {
       const token = sessionStorage.getItem("token");
-      const responseQuestionFetch = await fetch(`${import.meta.env.VITE_API_URL}/fetch-questions/${subject}/${year}/${examination_id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/fetch-questions/${subject}/${year}/${examination_id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -12,12 +12,12 @@ export    async function fetchQuestions(subject,year,examination_id,setQuestionD
         }
       });
 
-      if (!responseQuestionFetch.ok) {
+      if (!response.ok) {
         throw new Error('Failed to fetch questions');
       }
 
-      const responseDataQuestionFetch = await responseQuestionFetch.json();
-      setQuestionData(responseDataQuestionFetch.questionData); // Set questionData to fetched response
+      const responseData = await response.json();
+      setQuestionData(responseData.questionData); // Set questionData to fetched response
       setLoading(false); // Update loading state because response received
 
     } catch (error) {

@@ -1,6 +1,6 @@
 import Chart from 'react-apexcharts';
 
-const Barchart = () => {
+const Barchart = ({averageScore}) => {
 
 
   return (
@@ -13,7 +13,7 @@ const Barchart = () => {
         series={[
           {
             name: "test data",
-            data: [80, 75, 94, 73, 0]
+            data: averageScore
           }
         ]}
         options={{
@@ -21,10 +21,10 @@ const Barchart = () => {
             id: 'basic-bar'
           },
           xaxis: {
-            categories: ['Bahasa Melayu','English','Sejarah','Pendidikan Islam','Matematik' ]
+            categories: ['Bahasa Melayu','English','Sejarah','Pendidikan Islam','Pendidikan Moral','Matematik' ]
           },
           title: {
-            text: 'Average Marks Per Subject',
+            text: 'Average Score Per Subject (%)',
             align: 'center', // You can align it 'left', 'center', or 'right'
             style: {
               fontSize: '20px',

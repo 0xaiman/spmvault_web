@@ -9,7 +9,7 @@ const QuestionComponent = (props) => {
   return (
     // <div className="bg-white shadow p-4 py-6 sm:p-6 rounded-lg w-3/4 lg:w-4/5 h-max gap-5 flex flex-col">
     <>
-      <div id="question-header" className='w-full flex flex-row gap-2 justify-between py-5'>
+      <div id="question-header" className='w-full flex flex-row gap-2 justify-between py-5 '>
         <button id="previous-button" onClick={props.handlePreviousButton} className='px-4 hover:bg-gray-400 active:bg-gray-500 border border-gray-300 active:shadow-lg font-medium py-2 rounded-lg duration-150'>
           <img src={arrowLeftSVG} />
         </button>
