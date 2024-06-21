@@ -13,7 +13,7 @@ const loadData = async(setMenuList,setError)=>{
     //check if data alrdy in cache, if not call API
     const cachedData = sessionStorage.getItem("questionSetsMenu");
 
-    if(cachedData){
+    if(cachedData && cachedData !==undefined){
         setMenuList(JSON.parse(cachedData))
     }else{
         const fetchResponse =  await fetchViewQuestionSets();
