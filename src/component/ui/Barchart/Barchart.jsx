@@ -12,7 +12,7 @@ const Barchart = ({averageScore,arraySubject}) => {
         height="auto"
         series={[
           {
-            name: "test data",
+            name: "Your average score",
             data: averageScore
           }
         ]}
@@ -25,7 +25,7 @@ const Barchart = ({averageScore,arraySubject}) => {
           },
           title: {
             text: 'Average Score Per Subject (%)',
-            align: 'center', // You can align it 'left', 'center', or 'right'
+            align: 'center', 
             style: {
               fontSize: '20px',
               fontWeight: 'bold',

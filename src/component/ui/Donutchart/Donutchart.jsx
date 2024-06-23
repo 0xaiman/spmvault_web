@@ -18,7 +18,6 @@ const Donutchart = ({numberAttempt,arraySubject}) => {
           title: {
             text: 'Number of Attempts Per Subject', 
             align:'center'
-
         },
         
           dataLabels: {
