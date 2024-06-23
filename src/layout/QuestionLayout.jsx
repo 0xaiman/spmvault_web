@@ -103,8 +103,7 @@ export const QuestionLayout = () => {
       <div className='h-1/2 w-screen text-center text-2xl font-bold flex flex-col justify-center'>
      
           <>
-            <p>Questions set is <span className="text-indigo-600">unavailable</span>.</p>
-            <p>Please Check back Later.</p>
+            <p>Please <span className="text-indigo-600">Log In</span> to access the questions.</p>
           </>
       
       </div>

@@ -1,47 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { subjectColorBg, subjectColorHover,subjectColorPrimary } from "../utils/colorSubjectThemeUtils";
+import { subjectColorBg, subjectColorHover,subjectColorPrimary,ringColor } from "../utils/colorSubjectThemeUtils";
 
 // import image1 from "../../assets/media/thumbnail/1.png"
 
 
 
-const bgColor = {
-    "sejarah": 'bg-orange-500',
-    "bahasa_malaysia": 'bg-amber-500',
-    "bahasa_inggeris": 'bg-blue-400',
-    "pendidikan_islam": 'bg-green-400',
-    "matematik": 'bg-red-600',
-    "pendidikan_moral": 'bg-purple-500',
-  };
-const bgColorHover = {
-    "sejarah": 'hover:bg-orange-400',
-    "bahasa-malaysia": 'hover:bg-amber-800',
-    "bahasa-inggeris": 'hover:bg-blue-400',
-    "pendidikan-islam": 'hover:bg-green-400',
-    "matematik": 'hover:bg-red-400',
-    "pendidikan_moral": 'hover:bg-purple-400',
 
-  };
-const borderColorHover = {
-    "sejarah": 'hover:border-orange-500',
-    "bahasa-malaysia": 'hover:border-amber-500',
-    "bahasa-inggeris": 'hover:border-blue-500',
-    "pendidikan-islam": 'hover:border-green-500',
-    "matematik": 'hover:border-red-500',
-    "pendidikan_moral": 'hover:border-purple-500',
-
-  };
-const ringColor = {
-    "sejarah": 'ring-orange-600',
-    "bahasa-malaysia": 'ring-amber-600',
-    "bahasa-inggeris": 'ring-blue-600',
-    "pendidikan-islam": 'ring-green-600',
-    "matematik": 'ring-red-600',
-    "pendidikan_moral": 'ring-purple-600',
-
-  };
 
 const QuestionFrontPage =() => {
 const location = useLocation();
