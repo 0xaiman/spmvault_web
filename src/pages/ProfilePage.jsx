@@ -4,17 +4,8 @@ import Donutchart from '../component/ui/Donutchart/Donutchart'
 import Header from '../component/ui/Header/Header'
 import ProfileHeader from '../component/ui/ProfileHeader/ProfileHeader'
 import { useNavigate, useSearchParams } from "react-router-dom";
-import bgImageDashboardNotFound from '../assets/media/dashboard/pie_chart.jpg'
 
 
-const backgroundImageStyle = {
-  backgroundImage: `url${bgImageDashboardNotFound}`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  width: '100%',
-  height: '100%',
-};
 
 export const ProfilePage = () => {
   let [searchParams] = useSearchParams();
@@ -101,7 +92,7 @@ export const ProfilePage = () => {
 
   return (
     <div className='bg-gray-100'>
-    <Header/>
+      <Header/>
          <ProfileHeader 
          username={username}
          email ={email}
