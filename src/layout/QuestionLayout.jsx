@@ -154,6 +154,7 @@ export const QuestionLayout = () => {
                     questionLength={questionData.length}
                     question={questionData[index].question_text}
                     multi={questionData[index].multi_choice}
+                    // image_path={`https://firebasestorage.googleapis.com/v0/b/fir-uploadspmvault.appspot.com/o/test%2F1718899283238_q40.jpg?alt=media&token=1718899283238`}
                     image_path={questionData[index].path}
                     answer={questionData[index].answer_options}
                     handlePreviousButton={handlePreviousButton}

@@ -18,7 +18,7 @@ const QuestionMenuPage = () => {
 
     return (
         
-        <section className=" bg-gray-100 flex flex-col gap-5">
+        <section className=" h-1/2  bg-gray-100 flex flex-col gap-5">
         <Header/>
 
             <div className="max-w-screen-lg mx-auto px-4 md:px-8">
@@ -27,7 +27,7 @@ const QuestionMenuPage = () => {
                     <p className="text-gray-600">Blogs that are loved by the community. Updated every hour.</p>
                   
                 </div>
-                <ul className="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3 mb-20">
                     {
                         menuList.map((items, key) => (
                             <QuestionSetCard

@@ -1,6 +1,6 @@
 import Chart from 'react-apexcharts';
 
-const Barchart = ({averageScore}) => {
+const Barchart = ({averageScore,arraySubject}) => {
 
 
   return (
@@ -21,7 +21,7 @@ const Barchart = ({averageScore}) => {
             id: 'basic-bar'
           },
           xaxis: {
-            categories: ['Bahasa Melayu','English','Sejarah','Pendidikan Islam','Pendidikan Moral','Matematik' ]
+            categories: arraySubject
           },
           title: {
             text: 'Average Score Per Subject (%)',

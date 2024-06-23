@@ -13,6 +13,7 @@ export const ProfilePage = () => {
   const email =  sessionStorage.getItem("email");
   const lastLogin  = sessionStorage.getItem("lastLogin");
   const [error,setError] = useState(null);
+  const [arraySubject,setArraySubject]=useState([])
   const [averageScore ,setAverageScore] = useState({})
   const [numberAttempt ,setNumberAttempt] = useState([])
   const navigate = useNavigate();
@@ -54,7 +55,9 @@ export const ProfilePage = () => {
       }
 
       const responseData = await response.json();
+      console.log(responseData)
 
+      const responseSubjectArrayData = responseData.arraySubject;
       const responseAttemptData = responseData.numberOfAttemptList
       const responseAvgScoreData = responseData.avgScoreList
       // todo : save to cache, minimize api call, and refactor
@@ -69,6 +72,7 @@ export const ProfilePage = () => {
         return isNaN(Number(item)) ? 0 : Number(item);
      });
 
+     setArraySubject(responseSubjectArrayData)
       setAverageScore(formattedAvgScoreList);
       setNumberAttempt(formattedAttemptList);
     }catch(error){
@@ -101,9 +105,12 @@ export const ProfilePage = () => {
           <Suspense fallback={<div>Loading Charts...</div>}>
             <Donutchart
             numberAttempt={numberAttempt}
+            arraySubject = {arraySubject}
             />
             <Barchart
             averageScore = {averageScore}
+            arraySubject = {arraySubject}
+
             
             />
           </Suspense>

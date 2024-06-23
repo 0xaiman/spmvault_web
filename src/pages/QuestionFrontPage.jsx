@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import { subjectColorBg, subjectColorHover,subjectColorPrimary } from "../utils/colorSubjectThemeUtils";
+
 // import image1 from "../../assets/media/thumbnail/1.png"
 
 
@@ -55,9 +57,9 @@ const [ringColorTheme,setRingColorTheme] = useState('') ;
 
 
 useEffect(()=>{
-    setBgColorTheme(bgColor[subject]);
-    setBgHoverColorTheme(bgColorHover[subject]);
-    setBorderHoverColorTheme(borderColorHover[subject]);
+    setBgColorTheme(subjectColorBg[subject]);
+    setBgHoverColorTheme(subjectColorPrimary[subject]);
+    setBorderHoverColorTheme(subjectColorHover[subject]);
     setRingColorTheme(ringColor[subject])
 
 

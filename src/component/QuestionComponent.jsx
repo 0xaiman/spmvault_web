@@ -64,7 +64,7 @@ const QuestionComponent = (props) => {
        
       </div>
       <div className="w-full">
-        {!props.image_path ? null : <img className="mx-auto" src={`${import.meta.env.VITE_API_URL}/${props.image_path}`} alt=" " style={{ width: 'auto', minHeight: '100px', maxHeight: '700px' }} />}
+        {!props.image_path ? null : <img className="mx-auto" src={`${props.image_path}`} alt=" " style={{ width: 'auto', minHeight: '100px', maxHeight: '700px' }} />}
       </div>
     </>
   

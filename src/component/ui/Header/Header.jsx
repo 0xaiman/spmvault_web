@@ -37,7 +37,7 @@ import { Link } from 'react-router-dom';
    
   return (
 <header className='bg-white'>
-        <nav className=" items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6">
+        <nav className=" items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 lg:flex lg:space-x-6">
                     <div className="flex justify-between">
                         <Link to={"/"}>
                             <img
@@ -47,7 +47,7 @@ import { Link } from 'react-router-dom';
                                 alt="logo"
                             />
                         </Link>
-                        <button className="text-gray-500 outline-none md:hidden"
+                        <button className="text-gray-500 outline-none lg:hidden"
                             onClick={() => setState(!state)}
                             // hamburger icon, visible on mobile
                         >
@@ -65,24 +65,24 @@ import { Link } from 'react-router-dom';
                             }
                         </button>
                     </div>
-                    <ul className={`flex-1 justify-between mt-12 md:flex md:mt-0 ${state ? '' : 'hidden'}`}>
-                        <li className="order-2 pb-5 md:pb-0 flex flex-col md:flex-row gap-3">
+                    <ul className={`flex-1 justify-between mt-12 lg:flex lg:mt-0 ${state ? '' : 'hidden'}`}>
+                        <li className="order-2 pb-5 lg:pb-0 flex flex-col lg:flex-row gap-3">
                                 <>
                                 {isLoggedIn?
                                 (
-                                <><Link  to={`/profile/?username=${username}`}  className="py-3 px-6 mx-2 rounded-md shadow-md text-white text-center bg-gray-800 focus:shadow-none block md:inline">
+                                <><Link  to={`/profile/?username=${username}`}  className="py-3 px-6 mx-2 rounded-md shadow-md text-white text-center bg-gray-800 focus:shadow-none block lg:inline">
                                     User Profile
                                     </Link>
-                                    <Link to={"/"} onClick={handleSignOut}  className="py-3 px-6 mx-2 rounded-md shadow-md text-white text-center bg-indigo-500 focus:shadow-none block md:inline">
+                                    <Link to={"/"} onClick={handleSignOut}  className="py-3 px-6 mx-2 rounded-md shadow-md text-white text-center bg-indigo-500 focus:shadow-none block lg:inline">
                                     Sign Out
-                                    </Link></>):( <Link to={"/login"} className="py-3 px-6 rounded-md shadow-md text-white text-center bg-indigo-500 focus:shadow-none block md:inline">
+                                    </Link></>):( <Link to={"/login"} className="py-3 px-6 rounded-md shadow-md text-white text-center bg-indigo-500 focus:shadow-none block lg:inline">
                                                 Sign In
                                     </Link>)
                                 }
                                
                                 </>   
                         </li>
-                        <div className="order-1 flex-1 justify-center items-center space-y-5 md:flex md:space-x-6 md:space-y-0">
+                        <div className="order-1 flex-1 justify-center items-center space-y-5 lg:flex lg:space-x-6 lg:space-y-0 mx-5 py-5 lg:mx-0 lg:py-0">
                             {
                                 routeList.map((item, idx) => (
                                     <li className="text-gray-500 hover:text-indigo-600" key={idx}>
