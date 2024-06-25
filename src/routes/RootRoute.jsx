@@ -4,12 +4,9 @@ import { RegisterPage } from "../pages/RegisterPage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import QuestionMenuPage from "../pages/QuestionMenuPage";
-import {
-    createBrowserRouter,
-  } from "react-router-dom";
+import {    createBrowserRouter  } from "react-router-dom";
 import QuestionFrontPage from "../pages/QuestionFrontPage";
-import { QuestionLayout } from "../layout/QuestionLayout";
-import { ResultLayout } from "../layout/ResultLayout";
+import { QuestionLayout } from "../pages/QuestionLayout";
 
 
   export const routeList = [
@@ -50,11 +47,7 @@ import { ResultLayout } from "../layout/ResultLayout";
 
       element: <QuestionLayout/>
     },
-    {
-      path: "/exam-set/:year/:subject/:examination_id/result",
-
-      element: <ResultLayout/>
-    },
+  
   ]
   
   export const router = createBrowserRouter(routeList);
