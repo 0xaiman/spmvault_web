@@ -19,7 +19,7 @@ const loadData = async(setMenuList,setError)=>{
         const fetchResponse =  await fetchViewQuestionSets();
         sessionStorage.setItem("questionSetsMenu",JSON.stringify(fetchResponse.data))
         setMenuList(fetchResponse.data);
-        console.log(fetchResponse.data);
+        // console.log(fetchResponse.data);
     }
     }catch(error){
         console.log("Error at QuestionMenuPage useEffect:",error)

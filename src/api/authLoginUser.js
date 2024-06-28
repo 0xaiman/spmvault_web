@@ -21,7 +21,7 @@ export async function loginUser({email,password,navigate}){
         });
 
         const data = await response.json()
-        console.log(data);
+        // console.log(data);
         //check if input results in error on BE side, render message from BE
         if(!data.ok){
             return alert(data.message)
