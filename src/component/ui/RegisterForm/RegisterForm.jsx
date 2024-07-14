@@ -21,23 +21,30 @@ const RegisterForm = () => {
     },[isLoggedIn])
 
     const handleSubmit=(event)=>{
-
         event.preventDefault();
-        registerUser({
+
+        if(isLoggedIn){
+            alert("You are already logged in.")
+            return;
+        }else{
+            registerUser({
                 username,
                 password,
                 email,
                 navigate
             })
+        }
+
+       
     }
 
-    if(isLoggedIn){
-    return (
-    <GenericError
-    errorMessage={"You are already Logged In"}
-    />
-    )
- }
+//     if(isLoggedIn){
+//     return (
+//     <GenericError
+//     errorMessage={"You are already Logged In"}
+//     />
+//     )
+//  }
 
   return (
 

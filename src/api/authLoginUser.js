@@ -21,7 +21,6 @@ export async function loginUser({email,password,navigate}){
         });
 
         const data = await response.json()
-        // console.log(data);
         //check if input results in error on BE side, render message from BE
         if(!data.ok){
             return alert(data.message)
@@ -32,6 +31,7 @@ export async function loginUser({email,password,navigate}){
         window.sessionStorage.setItem('username',data.username);
         window.sessionStorage.setItem('email',data.email);
         window.sessionStorage.setItem('lastLogin',data.lastLogin);
+        window.sessionStorage.setItem('profile-picture-path', data.profilePicturePath)
         navigate(`/profile/?username=${data.username}`) //directs to user Profile Page
 
     }catch(error){

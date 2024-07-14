@@ -8,6 +8,7 @@ import ResultComponent from '../component/ResultComponent';
 import { subjectColorBg,subjectColorHover,subjectColorPrimary } from '../utils/colorSubjectThemeUtils';
 import { fetchQuestions } from '../api/fetchQuestions';
 import { fetchResult } from '../api/fetchResult';
+import questionAttemptTimer from '../utils/questionAttemptTimer';
 
 
 
@@ -22,6 +23,7 @@ export const QuestionLayout = () => {
   const [answersArray, setAnswersArray] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [resultData, setResultData] = useState([]);
+
   const time = new Date();
   // timer feature
   
@@ -45,12 +47,10 @@ export const QuestionLayout = () => {
     hours,
   } = useStopwatch({ autoStart: true });
 
-  // Apply color styling based on subject
-  const colorThemeBg = subjectColorBg[subject];
-  const colorThemePrimary = subjectColorPrimary[subject];
-  const colorThemeHover = subjectColorHover[subject];
+  // 1 - onload, start timer 
+  // questionAttemptTimer(handleSubmitAttempt);
 
-  // Fetch questions from BE
+ // Fetch questions from BE
   useEffect(() => {
     fetchQuestions(subject,year,examination_id,setQuestionData,setLoading,setError);
   }, [year, subject, questionSet, examination_id,questionData]);
@@ -94,6 +94,11 @@ export const QuestionLayout = () => {
     fetchResult(examination_id,subject,answersArray,setResultData,setLoading,setError);
   }
 
+   // Apply color styling based on subject
+   const colorThemeBg = subjectColorBg[subject];
+   const colorThemePrimary = subjectColorPrimary[subject];
+   const colorThemeHover = subjectColorHover[subject];
+
   // Render UI handling if fetch fails
   if (loading) return <p className='h-screen w-screen text-center text-4xl font-bold flex flex-col justify-center'>Loading...</p>;
   //render Error Page if QUestions faile=s to fetch
@@ -103,7 +108,7 @@ export const QuestionLayout = () => {
       <div className='h-1/2 w-screen text-center text-2xl font-bold flex flex-col justify-center'>
      
           <>
-            <p>Please <span className="text-indigo-600">Log In</span> to access the questions.</p>
+            <p>Please <span className="text-indigo-600">Error Loading Question</span>. Please try logging in again.</p>
           </>
       
       </div>
@@ -153,7 +158,6 @@ export const QuestionLayout = () => {
                     questionLength={questionData.length}
                     question={questionData[index].question_text}
                     multi={questionData[index].multi_choice}
-                    // image_path={`https://firebasestorage.googleapis.com/v0/b/fir-uploadspmvault.appspot.com/o/test%2F1718899283238_q40.jpg?alt=media&token=1718899283238`}
                     image_path={questionData[index].path}
                     answer={questionData[index].answer_options}
                     handlePreviousButton={handlePreviousButton}

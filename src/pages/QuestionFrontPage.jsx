@@ -2,12 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { subjectColorBg, subjectColorHover,subjectColorPrimary,ringColor } from "../utils/colorSubjectThemeUtils";
-
-// import image1 from "../../assets/media/thumbnail/1.png"
-
-
-
-
+import processString from "../utils/processString";
 
 const QuestionFrontPage =() => {
 const location = useLocation();
@@ -52,7 +47,7 @@ function handleStartExam(){
             <div className="flex-1 flex items-center justify-center h-screen px-20">
                     <div className="flex flex-col justify-evenly h-1/2 gap-5">
                         <p className="text-3xl">
-                            You are about to attempt <span className="uppercase font-black">{subject} {desc} {questionSet} {year}</span>. 
+                            You are about to attempt <span className="uppercase font-black">{subject} {desc} {processString(questionSet)} {year}</span>. 
                             The duration for the question set is 1 Hour. Do you wish to proceed and start the Exam?
                         </p>
                         <button   

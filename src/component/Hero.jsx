@@ -4,7 +4,7 @@ const getStartedButonRoute = "/question-menu"
 
 export const Hero = () => {
   return (
-    <section className="my-40 mx-auto  max-w-screen-xl pb-4 px-4 sm:px-8">
+    <section className="my-20 mx-auto  max-w-screen-xl pb-4 px-4 sm:px-8">
     <div className="text-center space-y-4">
         <h1 className="text-gray-800 font-bold text-4xl md:text-6xl">
             Your Path to  

@@ -1,4 +1,5 @@
-import {  useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom";
+import processString from "../utils/processString";
 
 
 export const QuestionSetCard = (props) => {
@@ -30,7 +31,7 @@ const handleClick = ()=>{
                 <div className="mt-3 space-y-2 p-4">
                             <span className="block text-indigo-600 text-sm">{props.year}</span>
                         <h3 className="text-lg text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold">
-                           {props.subject} | {props.questionSet}
+                           {processString(props.subject)} | {processString(props.questionSet)}
                         </h3>
                     <p className="text-gray-600 text-sm duration-150 group-hover:text-gray-800">{props.desc}</p>
                 </div>

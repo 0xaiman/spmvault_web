@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("lastLogin");
-    sessionStorage.removeItem("questionSetsMenu");    
+    sessionStorage.removeItem("questionSetsMenu");  
+    sessionStorage.removeItem("profile-picture-path")  
 }
 
  const Header = () => {

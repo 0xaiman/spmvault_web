@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import arrowLeftSVG from "../assets/nav-icon/arrow-chevron-left.svg";
 import arrowRightSVG from "../assets/nav-icon/arrow-chevron-right.svg";
+import processString from "../utils/processString";
 
 
 
 const QuestionComponent = (props) => {
 
   return (
-    // <div className="bg-white shadow p-4 py-6 sm:p-6 rounded-lg w-3/4 lg:w-4/5 h-max gap-5 flex flex-col">
     <>
       <div id="question-header" className='w-full flex flex-row gap-2 justify-between py-5 '>
         <button id="previous-button" onClick={props.handlePreviousButton} className='px-4 hover:bg-gray-400 active:bg-gray-500 border border-gray-300 active:shadow-lg font-medium py-2 rounded-lg duration-150'>
@@ -15,8 +15,8 @@ const QuestionComponent = (props) => {
         </button>
 
         <div id="current-question-set-data" className='text-center'>
-          <h1>{props.year} | {props.questionSet}</h1>
-          <h2>{props.subject}</h2>
+          <h1>{props.year} | {processString(props.questionSet)}</h1>
+          <h2>{processString(props.subject)}</h2>
           <h3>{props.index + 1}/{props.questionLength}</h3>
         </div>
         <button id="next-button" onClick={props.handleNextButton} className='px-4 hover:bg-gray-400 active:bg-gray-500 border border-gray-300 active:shadow-lg font-medium py-2 rounded-lg duration-150'>
