@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalImgUpload from '../ModalImgUpload';
+import profilePictureFallback from "../../../assets/profile-picture-fallback/default.jpg"
 
 function formatDate(dateString) {
     if (!dateString) {
@@ -24,6 +25,8 @@ const ProfileHeader = (props) => {
     const [imgUploadModal, setImgUploadModal] = useState(false);
     const profileImagePath = window.sessionStorage.getItem("profile-picture-path");
 
+    console.log(profileImagePath)
+
     function handleImgUpload(){
         setImgUploadModal(true);
     }
@@ -45,7 +48,8 @@ const ProfileHeader = (props) => {
                     <div className="md:my-12">
                         <div className="w-24 h-24 mx-auto">
                             <img
-                                src={`${import.meta.env.VITE_API_URL}/${profileImagePath}`}
+                                // src={`${import.meta.env.VITE_API_URL}/${profileImagePath}` || profilePictureFallback}
+                                src={profileImagePath ? `${import.meta.env.VITE_API_URL}/${profileImagePath}` : profilePictureFallback}
                                 // src="http://localhost:3000/assets/profile-picture/a4e34fa3-39a6-4d9d-879e-a614157e7ded.png"
                                 className="w-full h-full rounded-full hover:cursor-pointer  hover:opacity-50 transition duration-300 "
                                 alt=""

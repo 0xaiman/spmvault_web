@@ -8,7 +8,6 @@ function HomePage(){
         <div className='bg-gray-100 h-screen'> 
             <Header/>
             <Hero/>
-            <Footer/>
         </div>
     )
 }
