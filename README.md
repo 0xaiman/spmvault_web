@@ -53,7 +53,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://spmvault-web.vercel.app/)
+[![Product Name Screen Shot][product-screenshot]]()
+ <a href="https://spmvault-web.vercel.app/">
+    <img src="src/assets/media/front.png" alt="sample" style="background-color: white;" width="400" height="auto">
+  </a>
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
