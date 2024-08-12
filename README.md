@@ -72,7 +72,7 @@ This project is part of Graduation project for [Kelasprogramming.com bootcamp](h
 ### Built With
 
 
-* [![React][React.js]][React-url]
+* [![React][React.js]][React-url]]
 * ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 
