@@ -57,16 +57,13 @@
     <img src="src/assets/media/front.png" alt="sample" style="background-color: white;" width="800" height="auto">
   </a>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+With the concerning poor performance of SPM student recently, I have decided to create a website to facilitate SPM revision online. Currently, ost students still relies heavily on pen and papers. WHile these are good to simulate real exam, it tends to get bland and boring for most students. Not to mention individual students need to go out and buy their own excercise and past year books which lead to wasteful and additional expense. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+SPMvault.com aims to address this by providing one-stop database to host past year exam , and give immediate result to stduent. On top of that, we provide feedback in the form of data driven dashboards so student can understand their own performance and where to address their learning problems.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+This project is part of Graduation project for [Kelasprogramming.com bootcamp](https://kelasprogramming.com/mern-bootcamp-02/), and this project is still in the works.
 
-Use the `BLANK_README.md` to get started.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
